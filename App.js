@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { Text, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { styles } from './styles.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import MenuDrawer from './navigation/drawerNavigation.js';
+import HomeScreen from './screens/Home.js';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Welcome to RSS notifier where all the information you need on ESPN FC will be provided</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class App extends React.Component {
+  render () {
+    return (
+      <NavigationContainer>
+        <MenuDrawer/>
+      </NavigationContainer>
+    );
+  };
+  
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
